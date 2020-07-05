@@ -38,6 +38,7 @@ module.exports = function transform(arr) {
 
         if (currentValue === comandDisNext) {
             skipNext = true;
+            ret.push(undefined);
         }
         else {
             if (currentValue === comandDisPrev) {
@@ -49,7 +50,7 @@ module.exports = function transform(arr) {
                 } else {
                     if (currentValue === comandDbPrev) {
                         if ((i - 1) >= 0)
-                            ret.push(arr[i - 1]);
+                            ret.push(ret[i - 1]);
                     } else {
                         ret.push(arr[i]);
                     }
@@ -58,5 +59,7 @@ module.exports = function transform(arr) {
 
         }
     }
-    return ret;
+    return ret.filter(function (item) {
+        return item != undefined;
+    });
 };
