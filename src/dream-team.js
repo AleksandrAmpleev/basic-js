@@ -12,18 +12,17 @@
     //Напишите ваш код в`src/dream-team.js`.
 
 module.exports = function createDreamTeam(members) {
+    if (!(members instanceof Array)) {
+        return false;
+    }
     var team = [];
     for (var i = 0; i < members.length; i++) {
         if (typeof members[i] === 'string') {
-            var t = members[i].split(' ');
-            for (var j = 0; j < t.length; j++) {
-                var name = t[j].trim();
-                if (name != '') {
-                    team.push(name[0]);
-                }
-
+            var t = members[i].trim().split(' ');
+            if (t.length > 0 && (typeof t[0]) == 'string') {
+                team.push(t[0][0].toUpperCase());
             }
         }
     }
-    return team.sort().join('').toUpperCase();
+    return team.sort().join('');
 };
