@@ -12,9 +12,11 @@
 module.exports = function countCats(matrix) {
     var cCats = 0;
     for (var i = 0; i < matrix.length; i++) {
-        let row = matrix[i].join(';');
-        var t = row.split('^^');
-        cCats += t.length - 1;
+        for (var j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] === '^^') {
+                cCats += 1;
+            }
+        }
     }
     return cCats;
 };
