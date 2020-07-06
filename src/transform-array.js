@@ -49,8 +49,14 @@ module.exports = function transform(arr) {
                         ret.push(arr[i + 1]);
                 } else {
                     if (currentValue === comandDbPrev) {
-                        if ((i - 1) >= 0)
-                            ret.push(ret[i - 1]);
+                        if ((i - 1) >= 0) {
+                            if (ret[i - 1] === undefined) {
+                                ret.push(ret[ret.length - 1]);
+                            }
+                            else {
+                                ret.push(ret[i - 1]);
+                            }
+                        }
                     } else {
                         ret.push(arr[i]);
                     }
