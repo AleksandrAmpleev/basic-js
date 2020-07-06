@@ -35,7 +35,12 @@ const chainMaker = {
         return this;
     },
     removeLink(position) {
-        this.chain.splice(position - 1, 1);
+        if (typeof position == "number") {
+            this.chain.splice(position - 1, 1);
+        } else {
+            throw new TypeError('type error. expected number');
+        }
+        
         return this;
     },
     reverseChain() {

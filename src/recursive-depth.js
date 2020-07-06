@@ -24,10 +24,11 @@ module.exports = class DepthCalculator {
     calculateDepth(arr, currentDepth) {
         var depth = currentDepth == undefined ? 1 : currentDepth;
         var maxDebth = depth;
+        depth += 1;
 
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] instanceof Array) {
-                depth += 1;
+                //depth += 1;
                 var localDepth = calculateDepth(arr[i], depth);
                 if (maxDebth < localDepth) { maxDebth = localDepth; }
             }
