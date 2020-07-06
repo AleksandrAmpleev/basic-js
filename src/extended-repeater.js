@@ -35,19 +35,36 @@ module.exports = function repeater(str, options) {
     if (options) {
         if (options.repeatTimes) {
             for (var i = 0; i < options.repeatTimes; i++) {
-                retStr.push(str);
-                if (options.addition && options.additionRepeatTimes > 0) {
+                retStr.push(str === null ? 'null' : str);
+                if (options.addition !== undefined && options.additionRepeatTimes > 0) {
 
                     for (var j = 0; j < options.additionRepeatTimes; j++) {
-                        retStr.push(options.addition);
+                        retStr.push(options.addition === null ? 'null' : options.addition);
                         if (options.additionSeparator && j < (options.additionRepeatTimes - 1)) {
-                            retStr.push(options.additionSeparator);
+                            retStr.push(options.additionSeparator === null ? 'null' : options.additionSeparator);
                         }
                     }
                 }
 
-                if (options.separator && i < (options.repeatTimes - 1)) {
-                    retStr.push(options.separator);
+                if (options.separator !== undefined && i < (options.repeatTimes - 1)) {
+                    retStr.push(options.separator === null ? 'null' : options.separator);
+                } else {
+                    if (options.separator == undefined && i < (options.repeatTimes - 1)) {
+                        retStr.push('+');
+                    }
+                }
+            }
+        } else {
+            if (options.addition !== undefined) {
+                retStr.push(str === null ? 'null' : str);
+                if (options.additionRepeatTimes === undefined) {
+                    options.additionRepeatTimes = 1;
+                }
+                for (var j = 0; j < options.additionRepeatTimes; j++) {
+                    retStr.push(options.addition === null ? 'null' : options.addition);
+                    if (options.additionSeparator && j < (options.additionRepeatTimes - 1)) {
+                        retStr.push(options.additionSeparator === null ? 'null' : options.additionSeparator);
+                    }
                 }
             }
         }
