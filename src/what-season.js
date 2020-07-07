@@ -10,7 +10,18 @@
 //Напишите ваш код в`src/what-season.js`.
 
 module.exports = function getSeason(date) {
-    function getSeason(date) {
+        //throw new CustomError('Not implemented');
+        // remove line with error and write your code here
+        var yar = date.getFullYear();
+    
+        if (date.toString().indexOf(yar) == -1) {
+            throw new Error('What is this?');
+        }
+
+        if (date == undefined) {
+            throw new Error('Unable to determine the time of year!');
+        }
+
         if (!(date instanceof Date)) {
             throw new TypeError('type error. expected date');
         }
@@ -40,5 +51,4 @@ module.exports = function getSeason(date) {
                 break;
         }
         return season;
-    };
 };
