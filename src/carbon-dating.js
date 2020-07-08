@@ -19,6 +19,10 @@ const HALF_LIFE_PERIOD= 5730;
 //Напишите ваш код в`src/carbon-dating.js`.
 
 module.exports = function dateSample(sampleActivity) {
+    if (typeof (sampleActivity) !== 'string') {
+        return false;
+    }
+
     var floatAct = parseFloat(sampleActivity);
     if (floatAct > 0 && floatAct < 15) {
         var lnn = Math.log(MODERN_ACTIVITY / sampleActivity);
