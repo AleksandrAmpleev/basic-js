@@ -19,6 +19,12 @@ const HALF_LIFE_PERIOD= 5730;
 //Напишите ваш код в`src/carbon-dating.js`.
 
 module.exports = function dateSample(sampleActivity) {
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
+    var floatAct = parseFloat(sampleActivity);
+    if (floatAct > 0 && floatAct < 15) {
+        var lnn = Math.log(MODERN_ACTIVITY / sampleActivity);
+        var n0n = 0.693 / HALF_LIFE_PERIOD;
+        return Math.ceil(lnn / n0n);
+    } else {
+        return false;
+    }
 };
