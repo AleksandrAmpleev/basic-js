@@ -24,6 +24,29 @@
 //`chainMaker.addLink(1).addLink(2).reverseChain().addLink(3).finishChain()` => `'( 2 )~~( 1 )~~( 3 )'`
 //Напишите ваш код в`src/simple-chain.js`.
 
+//const chainMaker = {
+//    chain: [],
+//    getLength() {
+//        return this.chain.length;
+//    },
+//    addLink(value) {
+//        this.chain.push('( ' + value + ' )');
+//        return this;
+//    },
+//    removeLink(position) {
+//        this.chain.splice(position - 1, 1);
+//        return this;
+//    },
+//    reverseChain() {
+//        this.chain.reverse();
+//        return this;
+//    },
+//    finishChain() {
+//        let chainRet = this.chain.join('~~');
+//        this.chain = [];
+//        return chainRet;
+//    }
+//};
 
 const chainMaker = {
     chain: [],
