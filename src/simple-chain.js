@@ -58,7 +58,7 @@ const chainMaker = {
         return this;
     },
     removeLink(position) {
-        if (typeof position == "number") {
+        if (typeof position === "number") {
             this.chain.splice(position - 1, 1);
         } else {
             throw new TypeError('type error. expected number');
