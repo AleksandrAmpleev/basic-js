@@ -28,8 +28,8 @@
 
 //Напишите ваш код в`src/hanoi-tower.js`.
 
-
-module.exports = function calculateHanoi(/* disksNumber, turnsSpeed */) {
-  throw new CustomError('Not implemented');
-  // remove line with error and write your code here
+module.exports = function calculateHanoi(disksNumber, turnsSpeed) {
+    let trns = Math.pow(2, disksNumber) - 1;
+    let timeDuration = Math.floor(((60 * 60) / turnsSpeed) * trns);
+    return { turns: trns, seconds: timeDuration};
 };
